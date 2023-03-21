@@ -1,10 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^18.15.5
   nuxt: ^3.3.1
 
+dependencies:
+  '@types/node': 18.15.5
+
 devDependencies:
-  nuxt: 3.3.1
+  nuxt: 3.3.1_@types+node@18.15.5
 
 packages:
 
@@ -949,7 +953,7 @@ packages:
     resolution: {integrity: sha512-PjVETP7+iZXAs5Q8O4ivl4t6qjWZMZqwiTVogUXHoHGZZcw7GZW3u3tzfYfE1HbzyYJfr236IXqQ02MeR8Fz2w==}
     dev: true
 
-  /@nuxt/vite-builder/3.3.1_vue@3.2.47:
+  /@nuxt/vite-builder/3.3.1_quhsxmmw3oav6wiw5coidkr2gu:
     resolution: {integrity: sha512-YDPDqMWRcZfI6ou2nfxj+IEaxfZXRoyoeMV917h7LbhmnqMBn1prJzFF+Li8br97emL958XANZ7GVZ9OVXgayA==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     peerDependencies:
@@ -987,8 +991,8 @@ packages:
       strip-literal: 1.0.1
       ufo: 1.1.1
       unplugin: 1.3.1
-      vite: 4.1.4
-      vite-node: 0.29.7
+      vite: 4.1.4_@types+node@18.15.5
+      vite-node: 0.29.7_@types+node@18.15.5
       vite-plugin-checker: 0.5.6_vite@4.1.4
       vue: 3.2.47
       vue-bundle-renderer: 1.0.2
@@ -1174,6 +1178,9 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
+  /@types/node/18.15.5:
+    resolution: {integrity: sha512-Ark2WDjjZO7GmvsyFFf81MXuGTA/d6oP38anyxWOL6EREyBKAxKoFHwBhaZxCfLRLpO8JgVXwqOwSwa7jRcjew==}
+
   /@types/resolve/1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: true
@@ -1248,7 +1255,7 @@ packages:
       '@babel/core': 7.21.3
       '@babel/plugin-transform-typescript': 7.21.3_@babel+core@7.21.3
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.21.3
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.15.5
       vue: 3.2.47
     transitivePeerDependencies:
       - supports-color
@@ -1261,7 +1268,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.15.5
       vue: 3.2.47
     dev: true
 
@@ -3305,7 +3312,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt/3.3.1:
+  /nuxt/3.3.1_@types+node@18.15.5:
     resolution: {integrity: sha512-1DTFXEr+FlZO/hyw765cb9a/AiGysHIGLNl8NGJtURwUWC4gd+Z3y5DnL04PE5fVJ08yB/KJwc0t6StijbL8wQ==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     hasBin: true
@@ -3315,7 +3322,7 @@ packages:
       '@nuxt/schema': 3.3.1
       '@nuxt/telemetry': 2.1.10
       '@nuxt/ui-templates': 1.1.1
-      '@nuxt/vite-builder': 3.3.1_vue@3.2.47
+      '@nuxt/vite-builder': 3.3.1_quhsxmmw3oav6wiw5coidkr2gu
       '@unhead/ssr': 1.1.23
       '@unhead/vue': 1.1.23_vue@3.2.47
       '@vue/reactivity': 3.2.47
@@ -4549,7 +4556,7 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vite-node/0.29.7:
+  /vite-node/0.29.7_@types+node@18.15.5:
     resolution: {integrity: sha512-PakCZLvz37yFfUPWBnLa1OYHPCGm5v4pmRrTcFN4V/N/T3I6tyP3z07S//9w+DdeL7vVd0VSeyMZuAh+449ZWw==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -4559,7 +4566,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.15.5
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4613,14 +4620,14 @@ packages:
       npm-run-path: 4.0.1
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.15.5
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
       vscode-uri: 3.0.7
     dev: true
 
-  /vite/4.1.4:
+  /vite/4.1.4_@types+node@18.15.5:
     resolution: {integrity: sha512-3knk/HsbSTKEin43zHu7jTwYWv81f8kgAL99G5NWBcA1LKvtvcVAC4JjBH1arBunO9kQka+1oGbrMKOjk4ZrBg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -4645,6 +4652,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.15.5
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
