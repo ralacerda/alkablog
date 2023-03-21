@@ -12,3 +12,11 @@ export type Comment = {
   email: string;
   body: string;
 };
+
+// Há mais informações presentes no API
+// mas essas são as informações necessárias para a implementação atual
+export type User = {
+  name: string;
+  username: string;
+  email: string;
+};

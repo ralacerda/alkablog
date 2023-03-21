@@ -9,28 +9,16 @@ if (isNaN(paramId)) {
   });
 }
 
-const postList = await getPosts();
+const post = await getPost(paramId);
 
-if (!postList.value) {
+if (!post.value) {
   throw createError({
     statusCode: 404,
     statusMessage: "Página não encontrada",
   });
 }
 
-/* Aqui é importante usar `filter` em vez de postList.value[postId - 1]
-  por que não temos certeza que a ordem dos posts vai ser sempre a mesma
-*/
-const post = postList.value.filter((post) => post.id == paramId)[0];
-
-if (!post) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Página não encontrada",
-  });
-}
-
-// Buscamos os comentários só depois de verificar que o post é valido
+// Buscamos os comentários e autor só depois de verificar que o post é valido
 const commentList = await getComments(paramId);
 </script>
 
