@@ -20,13 +20,26 @@ if (!post.value) {
 
 // Buscamos os comentários e autor só depois de verificar que o post é valido
 const commentList = await getComments(paramId);
+const autor = await getUser(post.value.userId);
 </script>
 
 <template>
-  <h2>{{ post }}</h2>
-  <ul>
-    <li v-for="comment in commentList">
-      {{ comment.email }}
-    </li>
-  </ul>
+  <article>
+    <h2>{{ post?.title }}</h2>
+    <p>por {{ autor?.name }}</p>
+    <p>{{ autor?.email }}</p>
+    <p>{{ post?.body }}</p>
+  </article>
+  <section>
+    <h2>Comments</h2>
+    <ul>
+      <li v-for="comment in commentList">
+        <h3>{{ comment.name }}</h3>
+        <p>{{ comment.email }}</p>
+        <p>{{ comment.body }}</p>
+      </li>
+    </ul>
+  </section>
+
+  <NuxtLink to="/">Voltar a página inicial</NuxtLink>
 </template>

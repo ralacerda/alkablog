@@ -5,7 +5,8 @@ const postList = await getAllPosts();
 <template>
   <ul>
     <li v-for="post in postList">
-      {{ post.title }}
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
       <NuxtLink :to="`/post/${post.id}`">Leia Mais </NuxtLink>
     </li>
   </ul>
