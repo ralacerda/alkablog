@@ -27,6 +27,11 @@ body {
 h1 {
   font-size: var(--step-1);
   font-family: var(--font-display);
+
+  & :any-link {
+    color: var(--foreground);
+    text-decoration: none;
+  }
 }
 
 h2 {
@@ -51,6 +56,9 @@ main {
 
 header {
   background-color: var(--background-secondary);
+  position: sticky;
+  z-index: 10;
+  top: 0;
   border-bottom: 1px solid #00000010;
   & h1 {
     max-width: 75rem;

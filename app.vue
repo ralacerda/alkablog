@@ -4,7 +4,7 @@ import "~/assets/styles/index.scss";
 
 <template>
   <header>
-    <h1>AlkaBlog</h1>
+    <h1><NuxtLink to="/" class="header-link">AlkaBlog</NuxtLink></h1>
   </header>
   <main>
     <NuxtPage />
