@@ -24,12 +24,14 @@ const autor = await getUser(post.value.userId);
 <template>
   <div class="post">
     <article>
-      <h2>{{ post?.title }}</h2>
-      <p>por {{ autor?.name }}</p>
-      <p>{{ autor?.email }}</p>
-      <p>{{ post?.body }}</p>
+      <h2 class="post__title">{{ post?.title }}</h2>
+      <div class="post__author">
+        <p class="author__name">{{ autor?.name }}</p>
+        <p class="author__email">{{ autor?.email }}</p>
+      </div>
+      <p class="post__body">{{ post?.body }}</p>
     </article>
-    <section>
+    <section class="post__comments">
       <PostComments :postId="paramId" />
     </section>
 
@@ -43,5 +45,31 @@ const autor = await getUser(post.value.userId);
   border-radius: var(--border-radius);
   padding: 1.2rem 1rem;
   box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.05);
+}
+
+.post__author {
+  margin-top: 0.5rem;
+
+  & .author__name {
+    font-variant-caps: all-small-caps;
+  }
+
+  & .author__email {
+    font-size: var(--step--1);
+    text-transform: lowercase;
+  }
+}
+
+.post__body {
+  margin-top: 1.5rem;
+  font-size: var(--step-1);
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.post__comments {
+  margin-block: 1.5rem;
 }
 </style>
