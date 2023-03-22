@@ -22,15 +22,26 @@ const autor = await getUser(post.value.userId);
 </script>
 
 <template>
-  <article>
-    <h2>{{ post?.title }}</h2>
-    <p>por {{ autor?.name }}</p>
-    <p>{{ autor?.email }}</p>
-    <p>{{ post?.body }}</p>
-  </article>
-  <section>
-    <PostComments :postId="paramId" />
-  </section>
+  <div class="post">
+    <article>
+      <h2>{{ post?.title }}</h2>
+      <p>por {{ autor?.name }}</p>
+      <p>{{ autor?.email }}</p>
+      <p>{{ post?.body }}</p>
+    </article>
+    <section>
+      <PostComments :postId="paramId" />
+    </section>
 
-  <NuxtLink to="/">Voltar a página inicial</NuxtLink>
+    <NuxtLink to="/">Voltar a página inicial</NuxtLink>
+  </div>
 </template>
+
+<style lang="scss">
+.post {
+  background-color: var(--background-secondary);
+  border-radius: var(--border-radius);
+  padding: 1.2rem 1rem;
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.05);
+}
+</style>

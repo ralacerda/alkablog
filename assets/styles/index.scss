@@ -7,64 +7,58 @@ body {
 }
 
 body {
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 4 4'%3E%3Cpath fill='var(--foreground-secondary)' fill-opacity='0.03' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   line-height: 1.6;
+  color: var(--foreground);
   font-size: var(--step-0);
   font-family: var(--font-body);
 }
 
 :any-link {
-  color: var(--blue);
+  color: var(--accent);
   text-decoration: underline;
 
   &:hover {
     text-decoration: none;
   }
-
-  h2 & {
-    color: var(--block);
-  }
 }
 
 h1 {
-  font-size: var(--step-2);
+  font-size: var(--step-1);
   font-family: var(--font-display);
 }
 
 h2 {
-  max-width: 40ch;
+  max-width: 35ch;
   line-height: 1.1;
-  font-size: var(--step-1);
+  font-size: var(--step-2);
+}
 
-  &::first-letter {
-    text-transform: uppercase;
-  }
+:is(h2, p)::first-letter {
+  text-transform: uppercase;
 }
 
 p {
-  max-width: 70ch;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  max-width: 75ch;
 }
 
-header,
 main {
-  max-width: 70rem;
+  max-width: 75rem;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
 
+header {
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid #00000010;
+  & h1 {
+    max-width: 75rem;
+    margin-inline: auto;
+    padding: 0.2rem 2.5rem;
+  }
+}
+
 main {
-  margin-top: 1rem;
-
-  & li + li {
-    margin-top: 3rem;
-  }
-
-  & li > * {
-    margin-top: 0.5em;
-  }
+  margin-top: var(--space-s);
 }
