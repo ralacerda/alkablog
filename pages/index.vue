@@ -25,8 +25,8 @@ const postList = await getAllPosts();
 .card {
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);
-  padding: 1.2rem 1rem;
-  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.05);
+  padding: var(--content-padding);
+  box-shadow: var(--box-shadow);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ const postList = await getAllPosts();
 
 .card-container {
   display: grid;
-  gap: 3rem;
+  gap: var(--space-l-xl);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
 }
 
@@ -46,13 +46,9 @@ const postList = await getAllPosts();
 }
 
 .card__body {
-  margin-top: 0.4rem;
+  margin-block: var(--space-2xs-xs);
   &::first-letter {
     text-transform: uppercase;
   }
-}
-
-.card__link {
-  margin-top: 1.2rem;
 }
 </style>

@@ -58,12 +58,12 @@ const autor = await getUser(post.value.userId);
 .post {
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);
-  padding: 1.2rem 1rem;
-  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.05);
+  padding: var(--content-padding);
+  box-shadow: var(--box-shadow);
 }
 
 .post__author {
-  margin-top: 0.5rem;
+  margin-top: var(--space-3xs-2xs);
 
   & .author__name {
     font-variant-caps: all-small-caps;
@@ -76,7 +76,7 @@ const autor = await getUser(post.value.userId);
 }
 
 .post__body {
-  margin-block: 1.5rem;
+  margin-block: var(--space-s-m);
   font-size: var(--step-1);
 
   &::first-letter {
@@ -85,6 +85,6 @@ const autor = await getUser(post.value.userId);
 }
 
 .post__comments {
-  margin-block: 1.5rem;
+  margin-block: var(--space-s-m);
 }
 </style>

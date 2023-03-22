@@ -27,10 +27,12 @@ header {
   top: 0;
   border-bottom: 1px solid #00000010;
   & h1 {
-    max-width: 75rem;
+    max-width: var(--main-maxsize);
     margin-inline: auto;
-    padding: 0.2rem 2.5rem;
 
+    // Adicionamos padding horizontal para alinhar o texto do Header com
+    // os outros textos dentro de cards
+    padding: 0.2rem calc(var(--main-padding) + var(--content-padding));
     font-size: var(--step-1);
     font-family: var(--font-display);
 
@@ -56,7 +58,7 @@ p {
 }
 
 main {
-  max-width: 75rem;
-  margin: var(--space-s) auto;
-  padding-inline: 1.5rem;
+  max-width: var(--main-maxsize);
+  margin: var(--space-s-m) auto;
+  padding-inline: var(--main-padding);
 }

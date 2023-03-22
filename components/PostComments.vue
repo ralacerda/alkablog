@@ -24,7 +24,7 @@ const { error, pending, commentList } = getComments(props.postId);
 
 <style lang="scss">
 .comment {
-  margin-top: 1.5rem;
+  margin-top: var(--space-s-m);
 }
 
 .comment__title {
