@@ -18,8 +18,6 @@ if (!post.value) {
   });
 }
 
-// Buscamos os comentários e autor só depois de verificar que o post é valido
-const commentList = await getComments(paramId);
 const autor = await getUser(post.value.userId);
 </script>
 
@@ -31,14 +29,7 @@ const autor = await getUser(post.value.userId);
     <p>{{ post?.body }}</p>
   </article>
   <section>
-    <h2>Comments</h2>
-    <ul>
-      <li v-for="comment in commentList">
-        <h3>{{ comment.name }}</h3>
-        <p>{{ comment.email }}</p>
-        <p>{{ comment.body }}</p>
-      </li>
-    </ul>
+    <PostComments :postId="paramId" />
   </section>
 
   <NuxtLink to="/">Voltar a página inicial</NuxtLink>

@@ -1,8 +1,13 @@
 import type { Comment } from "~/types";
 
-export default async function (postId: number) {
-  const { data: commentList } = await useFetch<Comment[]>(
+export default function (postId: number) {
+  // A gente não precisa de `await` com useLazyFetch
+  const {
+    error,
+    pending,
+    data: commentList,
+  } = useLazyFetch<Comment[]>(
     `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
   );
-  return commentList;
+  return { error, pending, commentList };
 }
