@@ -3,6 +3,10 @@ import "~/assets/styles/index.scss";
 </script>
 
 <template>
+  <Head>
+    <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  </Head>
   <header>
     <h1><NuxtLink to="/" class="header-link">AlkaBlog</NuxtLink></h1>
   </header>
