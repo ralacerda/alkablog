@@ -16,9 +16,7 @@
   --space-s: clamp(1rem, 0.818rem + 0.91vw, 1.5rem);
   --space-m: clamp(3rem, 2.636rem + 1.82vw, 4rem);
 
-  // Baseado na lista de fontes do Modern Font Stack
-  // https://modernfontstacks.com/
-  --font-display: "Roboto Seriff" serif;
+  --font-display: serif;
   --font-body: sans-serif;
 
   --border-radius: 4px;
