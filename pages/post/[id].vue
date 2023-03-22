@@ -31,6 +31,7 @@ const autor = await getUser(post.value.userId);
       </div>
       <p class="post__body">{{ post?.body }}</p>
     </article>
+    <hr />
     <section class="post__comments">
       <PostComments :postId="paramId" />
     </section>
@@ -40,6 +41,17 @@ const autor = await getUser(post.value.userId);
 </template>
 
 <style lang="scss">
+.post hr {
+  border: 0;
+  height: 1px;
+  max-width: 80ch;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
 .post {
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);
@@ -61,7 +73,7 @@ const autor = await getUser(post.value.userId);
 }
 
 .post__body {
-  margin-top: 1.5rem;
+  margin-block: 1.5rem;
   font-size: var(--step-1);
 
   &::first-letter {
