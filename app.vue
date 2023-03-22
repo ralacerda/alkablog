@@ -1,5 +1,12 @@
+<script setup lang="ts">
+import "~/assets/styles/index.scss";
+</script>
+
 <template>
-  <div>
+  <header>
+    <h1>AlkaBlog</h1>
+  </header>
+  <main>
     <NuxtPage />
-  </div>
+  </main>
 </template>
