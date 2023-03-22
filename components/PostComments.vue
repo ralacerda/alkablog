@@ -13,7 +13,7 @@ const { error, pending, commentList } = getComments(props.postId);
   <div v-else-if="commentList?.length == 0">Nada aqui</div>
   <div v-else>
     <ul>
-      <li class="comment" v-for="comment in commentList">
+      <li class="comment" v-for="comment in commentList" :key="comment.id">
         <h3 class="comment__title">{{ comment.name }}</h3>
         <p class="comment__email">{{ comment.email }}</p>
         <p class="comment__body">{{ comment.body }}</p>
