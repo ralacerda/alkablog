@@ -22,6 +22,9 @@ const autor = await getUser(post.value.userId);
 </script>
 
 <template>
+  <Head>
+    <Title>AlkaBlog | {{ post?.title }}</Title>
+  </Head>
   <div class="post">
     <article>
       <h2 class="post__title">{{ post?.title }}</h2>

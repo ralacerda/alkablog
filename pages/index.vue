@@ -3,6 +3,9 @@ const postList = await getAllPosts();
 </script>
 
 <template>
+  <Head>
+    <Title>AlkaBlog</Title>
+  </Head>
   <ul class="card-container">
     <li class="card" v-for="post in postList">
       <div>
