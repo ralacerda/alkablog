@@ -35,7 +35,7 @@ h2 {
   font-size: var(--step-2);
 
   &::first-letter {
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
 }
 

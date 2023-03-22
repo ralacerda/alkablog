@@ -44,6 +44,9 @@ const postList = await getAllPosts();
 
 .card__body {
   margin-top: 0.4rem;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .card__link {
