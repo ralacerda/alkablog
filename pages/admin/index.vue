@@ -40,10 +40,14 @@ function showComment(id: number) {
         </li>
       </ul>
     </div>
+    <!-- Aqui é necessário utilizar ClientOnly pois o SSR não consegue lidar com o Teleport-->
     <ClientOnly>
       <Teleport to="body" :disabled="isDesktop">
-        <div class="admin__comments" v-show="showCommentsModal || isDesktop">
+        <div class="admin__details" v-show="showCommentsModal || isDesktop">
+          <div class="details__post">
           <p v-if="postList">{{ postList[commentIndex] }}</p>
+          <p v-else>Erro ao carregar post</p>
+          </div>
           <p v-if="pending"><LoadingSpinner /></p>
           <p v-else-if="error">Erro ao carregar comentários: {{ error }}</p>
           <p v-else>
@@ -61,13 +65,13 @@ function showComment(id: number) {
 
 <style lang="scss">
 .admin {
-  display: flex;
+  display: grid;
   height: 90vh;
+  grid-template-columns: 1fr;
   position: relative;
-  justify-content: center;
 }
 
-.admin__comments {
+.admin__details {
   display: grid;
   flex-grow: 1;
   place-items: center;
@@ -83,12 +87,12 @@ function showComment(id: number) {
 }
 
 @media (min-width: 720px) {
-  .admin__comments {
+  .admin__details {
     position: static;
   }
 
-  .admin__posts {
-    max-width: 50ch;
+  .admin {
+    grid-template-columns: 2fr 3fr;
   }
 }
 
