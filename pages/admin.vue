@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMediaQuery } from "@vueuse/core";
-import type { Comment, Post } from "~/types";
+import type { Post } from "~/types";
 
 const isDesktop = useMediaQuery("(min-width: 720px)");
 
