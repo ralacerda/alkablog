@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useMediaQuery } from "@vueuse/core";
 import type { Post } from "~/types";
+import CloseIcon from "~icons/mdi/close-circle-outline";
 
 const isDesktop = useMediaQuery("(min-width: 720px)");
 
@@ -52,7 +53,7 @@ function selectPost(id: number) {
           <hr />
           <AdminCommentList :selectedPostId="selectedPostId" />
           <button v-show="!isDesktop" @click="showCommentsModal = false">
-            Close me
+            <CloseIcon />
           </button>
         </div>
       </Teleport>
@@ -75,13 +76,25 @@ function selectPost(id: number) {
 
 .admin__details {
   overflow-x: scroll;
+  position: relative;
   display: grid;
   gap: 1rem;
   background-color: white;
   grid-template-rows: auto auto 1fr;
   position: absolute;
-  inset: 1rem 0 0 0;
+  inset: 2rem 0 0 0;
   padding: var(--space-m-l);
+
+  & button {
+    position: absolute;
+    right: var(--space-m-l);
+    top: var(--space-m-l);
+    background: none;
+    border: none;
+    font-size: var(--step-2);
+    cursor: pointer;
+    opacity: 0.3;
+  }
 }
 
 @media (min-width: 720px) {
