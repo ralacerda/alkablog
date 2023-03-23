@@ -25,7 +25,7 @@ defineEmits<{
   </ul>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .admin__posts {
   overflow: scroll;
   padding-inline: 1rem;

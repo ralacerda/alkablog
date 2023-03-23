@@ -24,7 +24,7 @@ const { error, pending, data: commentList } = getComments(props.postId);
   </Transition>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .comment {
   margin-top: var(--space-s-m);
 }

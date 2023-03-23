@@ -43,7 +43,7 @@ const autor = await getUser(post.value.userId);
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .post {
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);

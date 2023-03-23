@@ -60,7 +60,7 @@ function selectPost(id: number) {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .admin {
   display: grid;
   height: 90vh;

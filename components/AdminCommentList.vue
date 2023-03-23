@@ -23,7 +23,7 @@ const {
       Erro ao carregar os comentários: {{ error }}
     </p>
     <ul v-else>
-      <li v-for="comment in commentList">
+      <li class="comment" v-for="comment in commentList">
         {{ comment }}
       </li>
     </ul>

@@ -21,7 +21,7 @@ const { data: postList } = await getAllPosts();
   </ul>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);

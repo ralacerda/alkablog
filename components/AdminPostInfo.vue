@@ -17,7 +17,7 @@ defineProps<{
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 :is(.postinfo__title, .postinfo__body)::first-letter {
   text-transform: uppercase;
 }
