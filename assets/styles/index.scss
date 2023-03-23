@@ -1,5 +1,6 @@
 @import "reset";
 @import "variables";
+@import "transitions";
 
 body {
   min-height: 100vh;
@@ -26,13 +27,19 @@ header {
   z-index: 10;
   top: 0;
   border-bottom: 1px solid #00000010;
-  & h1 {
+
+  & nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     max-width: var(--main-maxsize);
     margin-inline: auto;
-
     // Adicionamos padding horizontal para alinhar o texto do Header com
     // os outros textos dentro de cards
     padding: 0.2rem calc(var(--main-padding) + var(--content-padding));
+  }
+
+  & h1 {
     font-size: var(--step-1);
     font-family: var(--font-display);
 
@@ -61,4 +68,19 @@ main {
   max-width: var(--main-maxsize);
   margin: var(--space-s-m) auto;
   padding-inline: var(--main-padding);
+}
+
+.error {
+  color: var(--error);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  max-width: 80ch;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0)
+  );
 }
