@@ -41,7 +41,7 @@ function selectPost(id: number) {
     </div>
     <!-- Aqui é necessário utilizar ClientOnly pois o SSR não consegue lidar com o Teleport-->
     <ClientOnly>
-      <Teleport to="body" :disabled="isDesktop">
+      <Teleport to="main" :disabled="isDesktop">
         <div class="admin__details" v-show="showCommentsModal || isDesktop">
           <div class="details__post">
             <p v-if="selectedPost">
