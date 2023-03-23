@@ -8,6 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@vueuse/core": "^9.13.0",
     "nuxt": "^3.3.1"
   },
   "dependencies": {
