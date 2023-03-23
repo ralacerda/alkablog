@@ -36,13 +36,15 @@ defineEmits<{
   padding: 1rem;
   cursor: pointer;
 
-  &[data-selected="true"] {
-    outline: 2px solid var(--accent);
-    outline-offset: -2px;
-  }
-
   &::first-letter {
     text-transform: uppercase;
+  }
+}
+
+@media (min-width: 720px) {
+  .post button[data-selected="true"] {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
   }
 }
 </style>
