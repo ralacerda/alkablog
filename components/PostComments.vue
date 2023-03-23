@@ -3,7 +3,7 @@ const props = defineProps<{
   postId: number;
 }>();
 
-const { error, pending, commentList } = getComments(props.postId);
+const { error, pending, data: commentList } = getComments(props.postId);
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const postList = await getAllPosts();
+const { data: postList } = await getAllPosts();
 </script>
 
 <template>
