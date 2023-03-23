@@ -8,20 +8,20 @@ const { error, pending, data: commentList } = getComments(props.postId);
 
 <template>
   <h2>Comentários</h2>
-  <div v-if="pending"><LoadingSpinner /></div>
-  <div v-else-if="error" class="error">
-    Erro ao carregar os comentários: {{ error }}
-  </div>
-  <div v-else-if="commentList?.length == 0">Nada aqui</div>
-  <div v-else>
-    <ul>
+  <Transition name="transition-fade" mode="out-in">
+    <div v-if="pending"><LoadingSpinner /></div>
+    <div v-else-if="error" class="error">
+      Erro ao carregar os comentários: {{ error }}
+    </div>
+    <div v-else-if="commentList?.length == 0">Nada aqui</div>
+    <ul v-else>
       <li class="comment" v-for="comment in commentList" :key="comment.id">
         <h3 class="comment__title">{{ comment.name }}</h3>
         <p class="comment__email">{{ comment.email }}</p>
         <p class="comment__body">{{ comment.body }}</p>
       </li>
     </ul>
-  </div>
+  </Transition>
 </template>
 
 <style lang="scss">
