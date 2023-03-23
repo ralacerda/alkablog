@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import "~/assets/styles/index.scss";
+
+const route = useRoute();
+const isAdmin = computed(() => route.name == "admin");
 </script>
 
 <template>
@@ -7,10 +10,7 @@ import "~/assets/styles/index.scss";
     <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <Link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   </Head>
-  <header>
-    <h1><NuxtLink to="/" class="header-link">AlkaBlog</NuxtLink></h1>
-  </header>
-  <main>
+  <NuxtLayout :name="isAdmin ? 'admin' : 'default'">
     <NuxtPage />
-  </main>
+  </NuxtLayout>
 </template>
