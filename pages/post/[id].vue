@@ -44,17 +44,6 @@ const autor = await getUser(post.value.userId);
 </template>
 
 <style lang="scss">
-.post hr {
-  border: 0;
-  height: 1px;
-  max-width: 80ch;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0)
-  );
-}
-
 .post {
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);

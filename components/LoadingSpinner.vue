@@ -3,11 +3,22 @@ import SpinnerLogo from "~icons/mdi/loading";
 </script>
 
 <template>
-  <SpinnerLogo class="spinner" />
+  <div class="spinner-wrapper">
+    <SpinnerLogo class="spinner" />
+  </div>
 </template>
 
 <style>
+.spinner-wrapper {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 .spinner {
+  display: grid;
+  place-items: center;
   color: var(--foreground-secondary);
   opacity: 0.2;
   font-size: 3em;

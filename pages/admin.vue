@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMediaQuery } from "@vueuse/core";
-import type { Comment } from "~/types";
+import type { Comment, Post } from "~/types";
 
 const isDesktop = useMediaQuery("(min-width: 720px)");
 
@@ -12,18 +12,17 @@ const selectedPostId = ref(1);
 
 const { data: postList } = await getAllPosts();
 
-// Aqui a gente precisa passar uma função para que o Javascript recrie o string
-// e substitua o valor do selectedPostId sempre que ref mudar
-const {
-  error,
-  pending,
-  data: commentList,
-} = useLazyFetch<Comment[]>(
-  () =>
-    `https://jsonplaceholder.typicode.com/posts/${selectedPostId.value}/comments`
-);
+// Usamos um filter para evitar usar `postList[selectedPostId.value - 1]`
+// já que não temos certeza que a API vai sempre responder com os ID em ordem
+const selectedPost = computed(() => {
+  if (postList.value) {
+    return postList.value.filter(
+      (post: Post) => post.id == selectedPostId.value
+    )[0];
+  }
+});
 
-function showComment(id: number) {
+function selectPost(id: number) {
   selectedPostId.value = id;
   showCommentsModal.value = true;
 }
@@ -32,37 +31,29 @@ function showComment(id: number) {
 <template>
   <div class="admin">
     <div class="admin__posts">
-      <h2>Posts</h2>
-      <ul>
-        <li class="posts__card" v-for="post in postList" :key="post.id">
-          <button
-            @click="showComment(post.id)"
-            :data-selected="selectedPostId == post.id"
-          >
-            {{ post.title }}
-          </button>
-        </li>
-      </ul>
+      <AdminPostList
+        v-if="postList"
+        :postList="postList"
+        :selectedPostId="selectedPostId"
+        @selectPost="selectPost"
+      />
+      <p v-else class="error">Erro ao carregar list de posts</p>
     </div>
     <!-- Aqui é necessário utilizar ClientOnly pois o SSR não consegue lidar com o Teleport-->
     <ClientOnly>
       <Teleport to="body" :disabled="isDesktop">
         <div class="admin__details" v-show="showCommentsModal || isDesktop">
           <div class="details__post">
-            <p v-if="postList">{{ postList[selectedPostId] }}</p>
+            <p v-if="selectedPost">
+              <AdminPostInfo :postInfo="selectedPost" />
+            </p>
             <p v-else>Erro ao carregar post</p>
           </div>
-          <p v-if="pending"><LoadingSpinner /></p>
-          <p v-else-if="error" class="error">
-            Erro ao carregar os comentários: {{ error }}
-          </p>
-          <p v-else>
-            {{ commentList }}
-            {{ showCommentsModal }}
-            <button v-show="!isDesktop" @click="showCommentsModal = false">
-              Close me
-            </button>
-          </p>
+          <hr />
+          <AdminCommentList :selectedPostId="selectedPostId" />
+          <button v-show="!isDesktop" @click="showCommentsModal = false">
+            Close me
+          </button>
         </div>
       </Teleport>
     </ClientOnly>
@@ -79,36 +70,12 @@ function showComment(id: number) {
 
 .admin__details {
   display: grid;
-  flex-grow: 1;
-  place-items: center;
+  gap: 1rem;
   background-color: white;
+  grid-template-rows: auto auto 1fr;
   position: absolute;
   inset: 0;
-}
-
-.admin__posts {
-  overflow: scroll;
-  padding-inline: 1rem;
-  flex-grow: 1;
-}
-
-.admin__posts button {
-  text-align: left;
-  display: block;
-  width: 100%;
-  border: none;
-  margin-top: 1rem;
-  background-color: var(--background-secondary);
-  padding: 1rem;
-  cursor: pointer;
-
-  &[data-selected="true"] {
-    background-color: green;
-  }
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  padding: 4rem;
 }
 
 @media (min-width: 720px) {
