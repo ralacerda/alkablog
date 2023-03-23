@@ -3,25 +3,28 @@ import { useMediaQuery } from "@vueuse/core";
 import type { Comment } from "~/types";
 
 const isDesktop = useMediaQuery("(min-width: 720px)");
-const showCommentsModal = useState(() => false);
+
+const showCommentsModal = ref(false);
+
+// Começando com 1 para não ter que lidar com o cenário
+// em que nenhum post está selecionado
+const selectedPostId = ref(1);
 
 const { data: postList } = await getAllPosts();
 
-const commentIndex = useState(() => 1);
-
-// Aqui a gente precisa retornar uma função para que o Javascript recrie o string
-// E substitua o valor do commentIndex
+// Aqui a gente precisa passar uma função para que o Javascript recrie o string
+// e substitua o valor do selectedPostId sempre que ref mudar
 const {
   error,
   pending,
   data: commentList,
 } = useLazyFetch<Comment[]>(
   () =>
-    `https://jsonplaceholder.typicode.com/posts/${commentIndex.value}/comments`
+    `https://jsonplaceholder.typicode.com/posts/${selectedPostId.value}/comments`
 );
 
 function showComment(id: number) {
-  commentIndex.value = id;
+  selectedPostId.value = id;
   showCommentsModal.value = true;
 }
 </script>
@@ -29,14 +32,15 @@ function showComment(id: number) {
 <template>
   <div class="admin">
     <div class="admin__posts">
+      <h2>Posts</h2>
       <ul>
-        <li
-          class="posts__card"
-          v-for="post in postList"
-          :data-selected="commentIndex == post.id"
-          :key="post.id"
-        >
-          <button @click="showComment(post.id)">{{ post.title }}</button>
+        <li class="posts__card" v-for="post in postList" :key="post.id">
+          <button
+            @click="showComment(post.id)"
+            :data-selected="selectedPostId == post.id"
+          >
+            {{ post.title }}
+          </button>
         </li>
       </ul>
     </div>
@@ -45,11 +49,13 @@ function showComment(id: number) {
       <Teleport to="body" :disabled="isDesktop">
         <div class="admin__details" v-show="showCommentsModal || isDesktop">
           <div class="details__post">
-          <p v-if="postList">{{ postList[commentIndex] }}</p>
-          <p v-else>Erro ao carregar post</p>
+            <p v-if="postList">{{ postList[selectedPostId] }}</p>
+            <p v-else>Erro ao carregar post</p>
           </div>
           <p v-if="pending"><LoadingSpinner /></p>
-          <p v-else-if="error">Erro ao carregar comentários: {{ error }}</p>
+          <p v-else-if="error" class="error">
+            Erro ao carregar os comentários: {{ error }}
+          </p>
           <p v-else>
             {{ commentList }}
             {{ showCommentsModal }}
@@ -86,16 +92,6 @@ function showComment(id: number) {
   flex-grow: 1;
 }
 
-@media (min-width: 720px) {
-  .admin__details {
-    position: static;
-  }
-
-  .admin {
-    grid-template-columns: 2fr 3fr;
-  }
-}
-
 .admin__posts button {
   text-align: left;
   display: block;
@@ -103,11 +99,25 @@ function showComment(id: number) {
   border: none;
   margin-top: 1rem;
   background-color: var(--background-secondary);
-  padding: var(--content-padding);
+  padding: 1rem;
   cursor: pointer;
+
+  &[data-selected="true"] {
+    background-color: green;
+  }
 
   &::first-letter {
     text-transform: uppercase;
+  }
+}
+
+@media (min-width: 720px) {
+  .admin__details {
+    position: static;
+  }
+
+  .admin {
+    grid-template-columns: 2fr 3fr;
   }
 }
 </style>
