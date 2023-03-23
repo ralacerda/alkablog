@@ -69,19 +69,19 @@ function selectPost(id: number) {
 }
 
 .admin__posts {
-  overflow: scroll;
-  padding-inline: 1rem;
+  overflow-x: scroll;
+  padding-inline: var(--content-padding);
 }
 
 .admin__details {
-  overflow: scroll;
+  overflow-x: scroll;
   display: grid;
   gap: 1rem;
   background-color: white;
   grid-template-rows: auto auto 1fr;
   position: absolute;
-  inset: 0;
-  padding: 4rem;
+  inset: 1rem 0 0 0;
+  padding: var(--space-m-l);
 }
 
 @media (min-width: 720px) {

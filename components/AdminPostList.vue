@@ -31,9 +31,9 @@ defineEmits<{
   display: block;
   width: 100%;
   border: none;
-  margin-top: 1rem;
+  margin-top: var(--space-xs-s);
   background-color: var(--background-secondary);
-  padding: 1rem;
+  padding: var(--space-xs-s);
   cursor: pointer;
 
   &::first-letter {

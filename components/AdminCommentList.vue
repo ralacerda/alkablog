@@ -45,9 +45,9 @@ const {
 }
 
 .comment {
-  margin-block: 1rem;
+  margin-top: var(--space-xs-s);
   border: 1px solid #00000015;
-  padding: 1rem;
+  padding: var(--content-padding);
   border-radius: var(--border-radius);
 }
 </style>
