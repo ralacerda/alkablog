@@ -5,4 +5,5 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: "pt-BR" },
     },
   },
+  modules: ["unplugin-icons/nuxt"],
 });

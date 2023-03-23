@@ -43,7 +43,8 @@ function showComment(id: number) {
     <ClientOnly>
       <Teleport to="body" :disabled="isDesktop">
         <div class="admin__comments" v-show="showCommentsModal || isDesktop">
-          <p v-if="pending">Carregando comentários</p>
+          <p v-if="postList">{{ postList[commentIndex] }}</p>
+          <p v-if="pending"><LoadingSpinner /></p>
           <p v-else-if="error">Erro ao carregar comentários: {{ error }}</p>
           <p v-else>
             {{ commentList }}

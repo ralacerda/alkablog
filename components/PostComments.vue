@@ -8,7 +8,7 @@ const { error, pending, data: commentList } = getComments(props.postId);
 
 <template>
   <h2>Comentários</h2>
-  <div v-if="pending">Carregando comentários...</div>
+  <div v-if="pending"><LoadingSpinner /></div>
   <div v-else-if="error">Algo de errado aconteceu :(</div>
   <div v-else-if="commentList?.length == 0">Nada aqui</div>
   <div v-else>

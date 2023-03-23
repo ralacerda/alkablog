@@ -8,8 +8,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.50",
     "@vueuse/core": "^9.13.0",
-    "nuxt": "^3.3.1"
+    "nuxt": "^3.3.1",
+    "unplugin-icons": "^0.15.3"
   },
   "dependencies": {
     "@types/node": "^18.15.5",
