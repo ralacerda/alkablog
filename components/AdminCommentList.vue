@@ -23,9 +23,31 @@ const {
       Erro ao carregar os comentários: {{ error }}
     </p>
     <ul v-else>
+      <h2>Comentários</h2>
       <li class="comment" v-for="comment in commentList">
-        {{ comment }}
+        <p class="comment__email">{{ comment.email }}</p>
+        <p class="comment__name">
+          <strong>{{ comment.name }}</strong>
+        </p>
+        <p class="comment__body">{{ comment.body }}</p>
       </li>
     </ul>
   </Transition>
 </template>
+
+<style lang="scss" scoped>
+:is(.comment__name, .comment__body)::first-letter {
+  text-transform: uppercase;
+}
+
+.comment__email {
+  text-transform: lowercase;
+}
+
+.comment {
+  margin-block: 1rem;
+  border: 1px solid #00000015;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+</style>

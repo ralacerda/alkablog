@@ -14,7 +14,7 @@ defineEmits<{
 <template>
   <h2>Posts</h2>
   <ul>
-    <li class="posts__card" v-for="post in postList" :key="post.id">
+    <li class="post" v-for="post in postList" :key="post.id">
       <button
         :data-selected="selectedPostId == post.id"
         @click="$emit('selectPost', post.id)"
@@ -26,13 +26,7 @@ defineEmits<{
 </template>
 
 <style lang="scss" scoped>
-.admin__posts {
-  overflow: scroll;
-  padding-inline: 1rem;
-  flex-grow: 1;
-}
-
-.admin__posts button {
+.post button {
   text-align: left;
   display: block;
   width: 100%;

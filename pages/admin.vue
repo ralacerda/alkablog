@@ -68,7 +68,13 @@ function selectPost(id: number) {
   position: relative;
 }
 
+.admin__posts {
+  overflow: scroll;
+  padding-inline: 1rem;
+}
+
 .admin__details {
+  overflow: scroll;
   display: grid;
   gap: 1rem;
   background-color: white;
