@@ -13,7 +13,7 @@ const { error, pending, data: commentList } = getComments(props.postId);
     <div v-else-if="error" class="error">
       Erro ao carregar os comentários: {{ error }}
     </div>
-    <div v-else-if="commentList?.length == 0">Nada aqui</div>
+    <div v-else-if="commentList?.length == 0">Não há comentários</div>
     <ul v-else>
       <li class="comment" v-for="comment in commentList" :key="comment.id">
         <h3 class="comment__title">{{ comment.name }}</h3>
