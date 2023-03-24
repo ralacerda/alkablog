@@ -7,9 +7,7 @@ const isDesktop = useMediaQuery("(min-width: 720px)");
 
 const showCommentsModal = ref(false);
 
-// Começando com 1 para não ter que lidar com o cenário
-// em que nenhum post está selecionado
-const selectedPostId = ref(1);
+const selectedPostId = useState<null | number>(() => null);
 
 const { data: postList } = await getAllPosts();
 
@@ -36,12 +34,10 @@ function selectPost(id: number) {
   <div class="admin">
     <div class="admin__posts">
       <AdminPostList
-        v-if="postList"
         :postList="postList"
         :selectedPostId="selectedPostId"
         @selectPost="selectPost"
       />
-      <p v-else class="error">Erro ao carregar list de posts</p>
     </div>
     <!-- Aqui é necessário utilizar ClientOnly pois o SSR não consegue lidar com o Teleport-->
     <ClientOnly>

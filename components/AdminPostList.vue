@@ -2,8 +2,8 @@
 import type { Post } from "~/types";
 
 defineProps<{
-  postList: Post[];
-  selectedPostId: number;
+  postList: Post[] | null;
+  selectedPostId: number | null;
 }>();
 
 defineEmits<{
@@ -13,7 +13,7 @@ defineEmits<{
 
 <template>
   <h2>Posts</h2>
-  <ul>
+  <ul v-if="postList">
     <li class="post" v-for="post in postList" :key="post.id">
       <button
         :data-selected="selectedPostId == post.id"
@@ -23,6 +23,7 @@ defineEmits<{
       </button>
     </li>
   </ul>
+  <p v-else class="error">Erro ao carregar list de posts</p>
 </template>
 
 <style lang="scss" scoped>
