@@ -79,6 +79,14 @@ As informações de comentários são carregadas de forma assíncrona, assim, n�
 Utilizando a estratégia de Server Side Rendering, o navegador recebe uma renderização inicial feita no servidor,
 e carrega (hidata) os elementos em segundo plano. Dessa forma, é possível reduzir o tempo necessário para o carregamento inicial da página.
 
+### Design responsível
+
+Foi utilizada a estratégia de espaçamento e tamanho de fonte fluidas. Dessa forma, não há necessidade de breakpoints. O resultado é um site adaptado a qualquer tamanho de tela.
+
+Na página inicial, foi utilizado uma `grid` de CSS para automaticamente controlar a quantidade de colunas baseado no espaço disponível.
+
+Na área do administrador, foi utilizado "media queries" para ativar ou desativar a disposição do site em duas colunas. Para telas pequenas, foi utilizado um modal para o painel de informações.
+
 ## Ferramentas utilizadas
 
 - SASS, Typescript, VueJS, NuxtJS
