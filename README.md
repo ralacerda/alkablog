@@ -1,12 +1,14 @@
 # AlkaBlog
 
-Esse projeto faz parte de um processo seletivo. O objetivo é criar um Front-End que consiga consumir um REST API e mostrar as postagens de um blog, com informações de comentários quando um post fosse clicado.
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) [![Netlify Status](https://api.netlify.com/api/v1/badges/b2d01367-79f8-491e-9377-ec0fc914f0a5/deploy-status)](https://app.netlify.com/sites/alkablog/deploys)
 
-Eu optei por criar um site para um blog fictício com o nome de "AlkaBlog". Nesse site, há uma visualização do Blog como visitante, e uma área de administrador.
+Este projeto faz parte de um processo seletivo. O objetivo é criar um FrontEnd que consiga consumir um API REST e mostrar as postagens de um blog, com informações de comentários quando um post for clicado.
 
-Na área do administrador, é possível navegar pela lista de Posts, e ao selecionar um, acessar os comentários.
+Eu optei por criar um site para um blog fictício com o nome de "AlkaBlog". Nesse site, há uma visualização do Blog como visitante, e uma área do administrador.
 
-Na página incial, é simulado o resultado do blog, onde existe um card para cada postagem disponível, e ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e comentários.
+Na área do administrador, é possível navegar pela lista de posts, e ao selecionar um, acessar os comentários.
+
+Na página incial, é simulado o resultado do blog, há um card para cada postagem disponível, e ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e dos comentários.
 
 - 🔗 [Área do Administrador](https://alkablog.netlify.app/admin)
 - 🔗 [Blog](https://alkablog.netlify.app/)
@@ -20,9 +22,9 @@ git clone https://github.com/ralacerda/alkablog.git
 cd alkablog
 ```
 
-Certifique-se que você possui `node` instalado (Versão 16.x ou maior).
+Certifique-se de que você possui `node` instalado (Versão 16.x ou maior).
 
-Instale as depedencias necessárias. Se você não possui `pnpm` instalado, você pode instalar usando `npm -g pnpm` ou ativar o [corepack](https://github.com/nodejs/corepack) usando `corepack enable`.
+Instale as dependências necessárias. Se você não possui `pnpm` instalado, você pode instalar usando `npm -g pnpm` ou ativar o [corepack](https://github.com/nodejs/corepack) usando `corepack enable`.
 
 ```sh
 pnpm i
@@ -34,7 +36,7 @@ Criei a build e comece uma preview
 pnpm build && pnpm preview
 ```
 
-O aplicativo vai estar disponível no endereço http://localhost:3000
+O aplicativo estará disponível no endereço http://localhost:3000
 
 ## Destaques
 
@@ -42,11 +44,11 @@ O aplicativo vai estar disponível no endereço http://localhost:3000
 
 Tentei ao máximo utilizar HTML semântico e boas práticas de acessibilidade. Isso permite que elementos sejam re-utilizáveis e que o website seja acessível.
 
-### CSS resiliênte e facil de manter
+### CSS resiliente e fácil de manter
 
 O CSS foi escrito para ser facilmente modificado. Existe um arquivo para regras globais, um arquivo para o reset, um arquivo com as animações e um arquivo com as variáveis. Dessa forma, o design do website pode ser facilmente modificado.
 
-Para estilizar os componentes, foi utilizado [Scoped CSS](https://vuejs.org/api/sfc-css-features.html#scoped-css), que limita as definições para somente elementos daquele componente, evitando `conflitos` de estilos.
+Para estilizar os componentes, foi utilizado [Scoped CSS](https://vuejs.org/api/sfc-css-features.html#scoped-css), que limita as definições somente aos elementos daquele componente, evitando conflitos de estilos.
 
 O nome das classes foram escolhidos da seguinte forma:
 
@@ -70,7 +72,12 @@ O site foi desenvolvido de forma a lidar com eventuais instabilidades do API. Is
 
 ### Carregamento assíncrono
 
-Informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo.
+AS informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo e da melhor sensação de performance.
+
+## Server Side Rendering
+
+Utilizando a estratégia de Server Side Rendering, o navegador recebe uma renderização inicial feita no servidor,
+e carrega (hidata) os elementos em segundo plano. Dessa forma, é possível reduzir o tempo necessário para o carregamento inicial da página.
 
 ## Ferramentas utilizadas
 
@@ -78,11 +85,11 @@ Informações de comentários são carregadas de forma assíncrona, assim, não 
 - Bibliotecas vueuse e unplugin-icons
 - Git e GitHub para versionamento
 - Netlify para hospedagem e Continous Deployment
-- Calculadora Utopia para espaçamento e tamanho de fonte fluídas
+- Calculadora Utopia para espaçamento e tamanho de fonte fluidas
 
 ## Mudanças em um projeto real
 
-Como o projeto faz parte de um processo seletivo com tempo limitado, tomei a decisão de não implementar determinadas features, ou optei por um caminho mais simples.
+Como o projeto faz parte de um processo seletivo com tempo limitado, eu tomei a decisão de não implementar determinadas funcionalidades, ou optei por um caminho mais simples.
 
 ### Zod
 
