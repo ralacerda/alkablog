@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useMediaQuery } from "@vueuse/core";
-import type { Post } from "~/types";
 import CloseIcon from "~icons/mdi/close-circle-outline";
 
 const isDesktop = useMediaQuery("(min-width: 720px)");
@@ -14,9 +13,7 @@ const { data: postList } = await getAllPosts();
 // já que não temos certeza que a API vai sempre responder com os ID em ordem
 const selectedPost = computed(() => {
   if (postList.value) {
-    return postList.value.filter(
-      (post: Post) => post.id == selectedPostId.value
-    )[0];
+    return postList.value.filter((post) => post.id == selectedPostId.value)[0];
   }
   return null;
 });
