@@ -50,15 +50,32 @@ function selectPost(id: number) {
           <div class="details__post">
             <p v-if="selectedPost">
               <AdminPostInfo :postInfo="selectedPost" />
+        <Transition name="transition-slidein">
+          <div
+            class="admin__details"
+            v-if="showDetailsModal || isDesktop"
+            ref="detailsModal"
+          >
+            <p v-if="selectedPostId === null">
+              Selecione um post ao lado para ver suas informações e os seus
+              comentários.
             </p>
-            <p v-else>Erro ao carregar post</p>
+            <!-- O <template> é uma forma de usar um directive sem criar um elemento -->
+            <template v-else>
+              <div class="details__post">
+                <p v-if="selectedPost">
+                  <AdminPostInfo :postInfo="selectedPost" />
+                </p>
+                <p v-else>Erro ao carregar post</p>
+              </div>
+              <hr />
+              <AdminCommentList :selectedPostId="selectedPostId" />
+              <button v-show="!isDesktop" @click="showDetailsModal = false">
+                <CloseIcon />
+              </button>
+            </template>
           </div>
-          <hr />
-          <AdminCommentList :selectedPostId="selectedPostId" />
-          <button v-show="!isDesktop" @click="showCommentsModal = false">
-            <CloseIcon />
-          </button>
-        </div>
+        </Transition>
       </Teleport>
     </ClientOnly>
   </div>
