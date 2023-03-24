@@ -8,6 +8,9 @@ Na área do administrador, é possível navegar pela lista de Posts, e ao seleci
 
 Na página incial, é simulado o resultado do blog, onde existe um card para cada postagem disponível, e ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e comentários.
 
+- 🔗 [Área do Administrador](https://alkablog.netlify.app/admin)
+- 🔗 [Blog](https://alkablog.netlify.app/)
+
 ## Instalação local e uso
 
 Primeiro, clone o repositório e acesse sua pasta:
@@ -32,6 +35,42 @@ pnpm build && pnpm preview
 ```
 
 O aplicativo vai estar disponível no endereço http://localhost:3000
+
+## Destaques
+
+### HTML semântico e acessível.
+
+Tentei ao máximo utilizar HTML semântico e boas práticas de acessibilidade. Isso permite que elementos sejam re-utilizáveis e que o website seja acessível.
+
+### CSS resiliênte e facil de manter
+
+O CSS foi escrito para ser facilmente modificado. Existe um arquivo para regras globais, um arquivo para o reset, um arquivo com as animações e um arquivo com as variáveis. Dessa forma, o design do website pode ser facilmente modificado.
+
+Para estilizar os componentes, foi utilizado [Scoped CSS](https://vuejs.org/api/sfc-css-features.html#scoped-css), que limita as definições para somente elementos daquele componente, evitando `conflitos` de estilos.
+
+O nome das classes foram escolhidos da seguinte forma:
+
+```html
+<div class="bloco-container">
+  <div class="bloco">
+    <p class="bloco__elemento1"></p>
+    <p class="bloco__elemento2"></p>
+    <div class="bloco__subbloco">
+      <div class="subblock__elemento"></div>
+    </div>
+  </div>
+</div>
+```
+
+Essa padronização permite uma compreensão rápida do código.
+
+### Resiliência a erros
+
+O site foi desenvolvido de forma a lidar com eventuais instabilidades do API. Isso inclui redirecionamento para páginas de 404 e mensagens de aviso ao encontrar erros no carregamento de Posts ou Comentários.
+
+### Carregamento assíncrono
+
+Informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo.
 
 ## Ferramentas utilizadas
 
