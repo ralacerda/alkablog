@@ -3,13 +3,13 @@ import SpinnerLogo from "~icons/mdi/loading";
 </script>
 
 <template>
-  <div class="spinner-wrapper">
+  <div class="spinner-container">
     <SpinnerLogo class="spinner" />
   </div>
 </template>
 
 <style>
-.spinner-wrapper {
+.spinner-container {
   display: grid;
   place-items: center;
   height: 100%;
