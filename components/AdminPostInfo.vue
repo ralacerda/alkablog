@@ -21,12 +21,4 @@ defineProps<{
 :is(.postinfo__title, .postinfo__body)::first-letter {
   text-transform: uppercase;
 }
-
-.postinfo p + p {
-  margin-top: var(--space-3xs-2xs);
-}
-
-.postinfo__title {
-  padding-right: 4rem;
-}
 </style>

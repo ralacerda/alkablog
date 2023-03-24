@@ -46,16 +46,8 @@ function selectPost(id: number) {
     <!-- Aqui é necessário utilizar ClientOnly pois o SSR não consegue lidar com o Teleport-->
     <ClientOnly>
       <Teleport to="main" :disabled="isDesktop">
-        <div class="admin__details" v-show="showCommentsModal || isDesktop">
-          <div class="details__post">
-            <p v-if="selectedPost">
-              <AdminPostInfo :postInfo="selectedPost" />
         <Transition name="transition-slidein">
-          <div
-            class="admin__details"
-            v-if="showDetailsModal || isDesktop"
-            ref="detailsModal"
-          >
+          <div class="admin__details" v-if="showDetailsModal || isDesktop">
             <p v-if="selectedPostId === null">
               Selecione um post ao lado para ver suas informações e os seus
               comentários.
@@ -86,6 +78,7 @@ function selectPost(id: number) {
   display: grid;
   height: 90vh;
   grid-template-columns: 1fr;
+  grid-template-rows: 100%;
   position: relative;
 }
 
@@ -95,7 +88,6 @@ function selectPost(id: number) {
 }
 
 .admin__details {
-  overflow-x: scroll;
   position: relative;
   display: grid;
   gap: 1rem;
