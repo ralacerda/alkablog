@@ -93,9 +93,6 @@ function selectPost(id: number) {
   padding: var(--space-m-l);
 
   & button {
-    position: absolute;
-    right: var(--space-m-l);
-    top: var(--space-m-l);
     background: none;
     border: none;
     font-size: var(--step-2);
