@@ -117,7 +117,7 @@ Para esse projeto, o API utilizado possuia texto Lorem Ipsum sem capitalização
 
 ```css
 selector::first-letter {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 ```
 
