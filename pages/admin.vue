@@ -18,6 +18,7 @@ const selectedPost = computed(() => {
       (post: Post) => post.id == selectedPostId.value
     )[0];
   }
+  return null;
 });
 
 function selectPost(id: number) {
@@ -50,10 +51,7 @@ function selectPost(id: number) {
             <!-- O <template> é uma forma de usar um directive sem criar um elemento -->
             <template v-else>
               <div class="details__post">
-                <p v-if="selectedPost">
-                  <AdminPostInfo :postInfo="selectedPost" />
-                </p>
-                <p v-else>Erro ao carregar post</p>
+                <AdminPostInfo :postInfo="selectedPost" />
               </div>
               <hr />
               <AdminCommentList :selectedPostId="selectedPostId" />
