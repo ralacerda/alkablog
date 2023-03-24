@@ -14,9 +14,7 @@ const { data: postList } = await getAllPosts();
         </h2>
         <p class="card__body">{{ post.body }}</p>
       </div>
-      <div class="card__link">
-        <NuxtLink :to="`/post/${post.id}`">Leia mais</NuxtLink>
-      </div>
+      <NuxtLink :to="`/post/${post.id}`">Leia mais</NuxtLink>
     </li>
   </ul>
 </template>
