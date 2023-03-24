@@ -106,7 +106,7 @@ Em um projeto real, eu utilizaria [Zod](https://zod.dev/) para validar os result
 
 ### Paginação
 
-Dado o limite do API de posts responder de sempre com todos os 100 posts disponíveis, não foi possível otimizar
+Dado o limite do API de responder sempre com todos os 100 posts disponíveis, não foi possível otimizar
 o tempo de carregamento do website.
 Em um projeto real, uma mudança no API deveria ser feita para possibilitar o retorno de um valor
 limitado de posts. Dessa forma, seria possível fazer implementar uma paginação ou scroll infito, por exemplo, realizando pequenas chamadas conforme necessário.
