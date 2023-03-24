@@ -30,6 +30,9 @@ function selectPost(id: number) {
 </script>
 
 <template>
+  <Head>
+    <Title>AlkaBlog | Área do Administrador</Title>
+  </Head>
   <div class="admin">
     <div class="admin__posts">
       <AdminPostList
