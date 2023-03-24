@@ -2,9 +2,11 @@
 
 Esse projeto faz parte de um processo seletivo. O objetivo é criar um Front-End que consiga consumir um REST API e mostrar as postagens de um blog, com informações de comentários quando um post fosse clicado.
 
-Eu optei por criar um blog com o nome fictício "AlkaBlog".  
-Na página incial, existe um card para cada postagem disponível, ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e comentários.
-Na área do administrador, é possível ...
+Eu optei por criar um site para um blog fictício com o nome de "AlkaBlog". Nesse site, há uma visualização do Blog como visitante, e uma área de administrador.
+
+Na área do administrador, é possível navegar pela lista de Posts, e ao selecionar um, acessar os comentários.
+
+Na página incial, é simulado o resultado do blog, onde existe um card para cada postagem disponível, e ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e comentários.
 
 ## Instalação local e uso
 
@@ -31,18 +33,6 @@ pnpm build && pnpm preview
 
 O aplicativo vai estar disponível no endereço http://localhost:3000
 
-## Destaques
-
-### HTML semântico e acessível.
-
-### CSS resiliênte e facil de manter
-
-### Resiliência a erros
-
-### Carregamento assíncrono
-
-### PageSpeed Insight
-
 ## Ferramentas utilizadas
 
 - SASS, Typescript, VueJS, NuxtJS
@@ -66,8 +56,3 @@ Dado o limite do API de posts responder de sempre com todos os 100 posts dispon�
 o tempo de carregamento do website.
 Em um projeto real, uma mudança no API deveria ser feita para possibilitar o retorno de um valor
 limitado de posts. Dessa forma, seria possível fazer implementar uma paginação ou scroll infito, por exemplo, realizando pequenas chamadas conforme necessário.
-
-### Estilos
-
-- Não usaria CSS para capitalizar a primeira letra dos títulos e textos
-- Escolheria uma fonte específica ao invés de utilizar fontes do sistema.
