@@ -72,9 +72,9 @@ O site foi desenvolvido de forma a lidar com eventuais instabilidades do API. Is
 
 ### Carregamento assíncrono
 
-AS informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo e da melhor sensação de performance.
+As informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo e da melhor sensação de performance.
 
-## Server Side Rendering
+### Server Side Rendering
 
 Utilizando a estratégia de Server Side Rendering, o navegador recebe uma renderização inicial feita no servidor,
 e carrega (hidata) os elementos em segundo plano. Dessa forma, é possível reduzir o tempo necessário para o carregamento inicial da página.
