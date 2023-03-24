@@ -7,13 +7,12 @@ const props = defineProps<{
 const commentContainer = useState<null | HTMLElement>(() => null);
 
 // A gente verificar se o post mudou para voltar a posição ao topo
-// caso contrário, o scroll se mantem quando o elemento muda
 watch(props, () => {
   commentContainer.value?.scroll(0, 0);
 });
 
 // Aqui a gente precisa passar uma função para que o Javascript recrie o string
-// e substitua o valor do selectedPostId sempre que ref mudar
+// e substitua o valor do selectedPostId sempre que props.selectedPostId mudar
 const {
   error,
   pending,

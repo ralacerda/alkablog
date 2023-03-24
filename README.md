@@ -1,27 +1,55 @@
 # AlkaBlog
 
-Esse projeto faz parte do processo seletivo da Alkabot
+Esse projeto faz parte de um processo seletivo. O objetivo é criar um Front-End que consiga consumir um REST API e mostrar as postagens de um blog, com informações de comentários quando um post fosse clicado.
+
+Eu optei por criar um blog com o nome fictício "AlkaBlog".  
+Na página incial, existe um card para cada postagem disponível, ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e comentários.
+Na área do administrador, é possível ...
 
 ## Instalação local e uso
 
-## Ferramentas utilizadas
+Primeiro, clone o repositório e acesse sua pasta:
 
-- ModernFontStack: Fonts encontradas em multiplos sistema. Usar as fontes usadas diminuim o controle
-  sobre como o site vai aparecer, mas favorece a performace e evita mudanças de estilo durante carregamento
-  da página.
+```sh
+git clone https://github.com/ralacerda/alkablog.git
+cd alkablog
+```
+
+Certifique-se que você possui `node` instalado (Versão 16.x ou maior).
+
+Instale as depedencias necessárias. Se você não possui `pnpm` instalado, você pode instalar usando `npm -g pnpm` ou ativar o [corepack](https://github.com/nodejs/corepack) usando `corepack enable`.
+
+```sh
+pnpm i
+```
+
+Criei a build e comece uma preview
+
+```sh
+pnpm build && pnpm preview
+```
+
+O aplicativo vai estar disponível no endereço http://localhost:3000
 
 ## Destaques
 
-### Uso de Nuxt e SSR
+### HTML semântico e acessível.
 
-- Rápida velocidade para acessar
-- Usando router
+### CSS resiliênte e facil de manter
 
-### Lidando com erros
-
-O projeto consegue lidar corretamente com multiplos tipos de erro.
+### Resiliência a erros
 
 ### Carregamento assíncrono
+
+### PageSpeed Insight
+
+## Ferramentas utilizadas
+
+- SASS, Typescript, VueJS, NuxtJS
+- Bibliotecas vueuse e unplugin-icons
+- Git e GitHub para versionamento
+- Netlify para hospedagem e Continous Deployment
+- Calculadora Utopia para espaçamento e tamanho de fonte fluídas
 
 ## Mudanças em um projeto real
 
@@ -29,14 +57,17 @@ Como o projeto faz parte de um processo seletivo com tempo limitado, tomei a dec
 
 ### Zod
 
-O typescript não é capaz de verificar se a resposta do API bate com o modelo definido.
-Em um projeto real, eu utilizaria _Zod_ para validar os resultados do API, sendo possível verificar que o modelo da resposta bate com o modelo esperado.
-
-### Página de 404 personalizada
+O Typescript não é capaz de verificar se a resposta do API bate com o modelo definido.
+Em um projeto real, eu utilizaria [Zod](https://zod.dev/) para validar os resultados do API, sendo possível verificar que o modelo da resposta bate com o modelo esperado. Dessa forma, é possível lidar com erros na API sem afetar o resto do site.
 
 ### Paginação
 
-Dado o limite do API de posts responder de sempre com 100 posts, não foi possível otimizar
+Dado o limite do API de posts responder de sempre com todos os 100 posts disponíveis, não foi possível otimizar
 o tempo de carregamento do website.
 Em um projeto real, uma mudança no API deveria ser feita para possibilitar o retorno de um valor
 limitado de posts. Dessa forma, seria possível fazer implementar uma paginação ou scroll infito, por exemplo, realizando pequenas chamadas conforme necessário.
+
+### Estilos
+
+- Não usaria CSS para capitalizar a primeira letra dos títulos e textos
+- Escolheria uma fonte específica ao invés de utilizar fontes do sistema.
