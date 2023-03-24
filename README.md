@@ -56,3 +56,15 @@ Dado o limite do API de posts responder de sempre com todos os 100 posts dispon�
 o tempo de carregamento do website.
 Em um projeto real, uma mudança no API deveria ser feita para possibilitar o retorno de um valor
 limitado de posts. Dessa forma, seria possível fazer implementar uma paginação ou scroll infito, por exemplo, realizando pequenas chamadas conforme necessário.
+
+### Estilos
+
+Para esse projeto, o API utilizado possuia texto Lorem Ipsum sem capitalização no começo da frase. Para deixar a aparência mais bonita, eu utilizei CSS para capitalizar a a primeira palavra do texto.
+
+```css
+selector::first-letter {
+  text-transform: capitalize;
+}
+```
+
+Em um cenário real, é esperado que os texos estejam corretamente capitalizados.
