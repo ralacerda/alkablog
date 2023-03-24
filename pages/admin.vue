@@ -86,7 +86,7 @@ function selectPost(id: number) {
   position: relative;
   display: grid;
   gap: 1rem;
-  background-color: white;
+  background-color: var(--background-secondary);
   grid-template-rows: auto auto 1fr;
   position: absolute;
   inset: 2rem 0 0 0;
