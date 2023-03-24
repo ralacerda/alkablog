@@ -5,8 +5,7 @@ import CloseIcon from "~icons/mdi/close-circle-outline";
 
 const isDesktop = useMediaQuery("(min-width: 720px)");
 
-const showCommentsModal = ref(false);
-
+const showDetailsModal = useState(() => false);
 const selectedPostId = useState<null | number>(() => null);
 
 const { data: postList } = await getAllPosts();
@@ -23,7 +22,7 @@ const selectedPost = computed(() => {
 
 function selectPost(id: number) {
   selectedPostId.value = id;
-  showCommentsModal.value = true;
+  showDetailsModal.value = isDesktop.value ? false : true;
 }
 </script>
 
