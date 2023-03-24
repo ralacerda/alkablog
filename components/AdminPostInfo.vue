@@ -7,7 +7,8 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="postInfo" class="postinfo">
+  <p v-if="!postInfo">Erro ao carregar post</p>
+  <div v-else class="postinfo">
     <p class="postinfo__title">
       <strong>{{ postInfo.title }}</strong>
     </p>
@@ -15,7 +16,6 @@ defineProps<{
     <p>ID do Post: {{ postInfo.id }}</p>
     <p>ID do Author: {{ postInfo.userId }}</p>
   </div>
-  <p v-else>Erro ao carregar post</p>
 </template>
 
 <style lang="scss" scoped>
