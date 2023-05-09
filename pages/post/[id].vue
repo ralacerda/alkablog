@@ -2,19 +2,12 @@
 const route = useRoute();
 const paramId = parseInt(route.params.id as string);
 
-if (isNaN(paramId)) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Page not found",
-  });
-}
-
 const post = await getPost(paramId);
 
 if (!post.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Page not found",
+    statusMessage: "Invalid Post ID",
   });
 }
 
