@@ -9,11 +9,12 @@ const selectedPostId = useState<null | number>(() => null);
 
 const { data: postList } = await getAllPosts();
 
-// We use filter instead of `postList[selectedPostId.value - 1]`
+// We use find instead of `postList[selectedPostId.value - 1]`
 // because we're not sure the API will always returnd the array ordered by ID
 const selectedPost = computed(() => {
   if (postList.value) {
-    return postList.value.filter((post) => post.id == selectedPostId.value)[0];
+    const post = postList.value.find((post) => post.id == selectedPostId.value);
+    return post ? post : null;
   }
   return null;
 });
