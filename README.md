@@ -2,75 +2,65 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) [![Netlify Status](https://api.netlify.com/api/v1/badges/b2d01367-79f8-491e-9377-ec0fc914f0a5/deploy-status)](https://app.netlify.com/sites/alkablog/deploys)
 
-Este projeto faz parte de um processo seletivo. O objetivo é criar um FrontEnd que consiga consumir um API REST e mostrar as postagens de um blog, com informações de comentários quando um post for clicado.
+AlkaBlog showcases how to use Nuxt, Vue and Typescript to create a nice looking blog with a Admin Panel. Originally created for a Technical Assessment Test, this project now aims to provide a good example on how to implement features from Vue and Nuxt, data fetching, layout, routes, async components and virtual lists.
 
-Eu optei por criar um site para um blog fictício com o nome de "AlkaBlog". Nesse site, há uma visualização do Blog como visitante, e uma área do administrador.
-
-Na área do administrador, é possível navegar pela lista de posts, e ao selecionar um, acessar os comentários.
-
-Na página incial, é simulado o resultado do blog, há um card para cada postagem disponível, e ao clicar em cada link, o usuário é levado a uma página com o post, informações do autor e dos comentários.
-
-- 🔗 [Área do Administrador](https://alkablog.netlify.app/admin)
 - 🔗 [Blog](https://alkablog.netlify.app/)
+- 🔗 [Admin Panel](https://alkablog.netlify.app/admin)
 
-## Instalação local e uso
+## Installing locally
 
-Primeiro, clone o repositório e acesse sua pasta:
+First, clone the repo with:
 
 ```sh
 git clone https://github.com/ralacerda/alkablog.git
 cd alkablog
 ```
 
-Certifique-se de que você possui `node` instalado (Versão 16.x ou maior).
+Make sure you have `node` installed (Version 16.x or higher).
 
-Instale as dependências necessárias. Se você não possui `pnpm` instalado, você pode instalar usando `npm -g pnpm` ou ativar o [corepack](https://github.com/nodejs/corepack) usando `corepack enable`.
+Install the dependencies. If you don't have `pnpm` installed, you can enable [corepack](https://github.com/nodejs/corepack) with `corepack enable`.
 
 ```sh
 pnpm i
 ```
 
-Criei a build e comece uma preview
+You can preview it with
+
+```sh
+pnpm dev
+```
+
+Or you can build it and preview it with:
 
 ```sh
 pnpm build && pnpm preview
 ```
 
-O aplicativo estará disponível no endereço http://localhost:3000
+You can then acess the website at http://localhost:3000
 
-## Destaques
+## Features
 
-### HTML semântico e acessível.
+### Scoped CSS
 
-Tentei ao máximo utilizar HTML semântico e boas práticas de acessibilidade. Isso permite que elementos sejam re-utilizáveis e que o website seja acessível.
-
-### CSS resiliente e fácil de manter
-
-O CSS foi escrito para ser facilmente modificado. Existe um arquivo para regras globais, um arquivo para o reset, um arquivo com as animações e um arquivo com as variáveis. Dessa forma, o design do website pode ser facilmente modificado.
-
-Para estilizar os componentes, foi utilizado [Scoped CSS](https://vuejs.org/api/sfc-css-features.html#scoped-css), que limita as definições somente aos elementos daquele componente, evitando conflitos de estilos.
-
-O nome das classes foram escolhidos da seguinte forma:
+We use [Scoped CSS](https://vuejs.org/api/sfc-css-features.html#scoped-css) with the following class convention:
 
 ```html
-<div class="bloco-container">
-  <div class="bloco">
-    <p class="bloco__elemento1"></p>
-    <p class="bloco__elemento2"></p>
-    <div class="bloco__subbloco">
-      <div class="subblock__elemento"></div>
+<div class="block-container">
+  <div class="block">
+    <p class="block__element1"></p>
+    <p class="block__element2"></p>
+    <div class="block__subblock">
+      <div class="subblock__element"></div>
     </div>
   </div>
 </div>
 ```
 
-Essa padronização permite uma compreensão rápida do código.
-
-### Resiliência a erros
+### Error handling
 
 O site foi desenvolvido de forma a lidar com eventuais instabilidades do API. Isso inclui redirecionamento para páginas de 404 e mensagens de aviso ao encontrar erros no carregamento de Posts ou Comentários.
 
-### Carregamento assíncrono
+### Async Components
 
 As informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo e da melhor sensação de performance.
 
@@ -79,7 +69,7 @@ As informações de comentários são carregadas de forma assíncrona, assim, n�
 Utilizando a estratégia de Server Side Rendering, o navegador recebe uma renderização inicial feita no servidor,
 e carrega (hidata) os elementos em segundo plano. Dessa forma, é possível reduzir o tempo necessário para o carregamento inicial da página.
 
-### Design responsível
+### Responsive Design
 
 Foi utilizada a estratégia de espaçamento e tamanho de fonte fluidas. Dessa forma, não há necessidade de breakpoints. O resultado é um site adaptado a qualquer tamanho de tela.
 
@@ -87,38 +77,12 @@ Na página inicial, foi utilizado uma `grid` de CSS para automaticamente control
 
 Na área do administrador, foi utilizado "media queries" para ativar ou desativar a disposição do site em duas colunas. Para telas pequenas, foi utilizado um modal para o painel de informações.
 
-## Ferramentas utilizadas
+## TODO List
 
-- SASS, Typescript, VueJS, NuxtJS
-- Bibliotecas vueuse e unplugin-icons
-- Git e GitHub para versionamento
-- Netlify para hospedagem e Continous Deployment
-- Calculadora Utopia para espaçamento e tamanho de fonte fluidas
-
-## Mudanças em um projeto real
-
-Como o projeto faz parte de um processo seletivo com tempo limitado, eu tomei a decisão de não implementar determinadas funcionalidades, ou optei por um caminho mais simples.
-
-### Zod
-
-O Typescript não é capaz de verificar se a resposta do API bate com o modelo definido.
-Em um projeto real, eu utilizaria [Zod](https://zod.dev/) para validar os resultados do API, sendo possível verificar que o modelo da resposta bate com o modelo esperado. Dessa forma, é possível lidar com erros na API sem afetar o resto do site.
-
-### Paginação
-
-Dado o limite do API de responder sempre com todos os 100 posts disponíveis, não foi possível otimizar
-o tempo de carregamento do website.
-Em um projeto real, uma mudança no API deveria ser feita para possibilitar o retorno de um valor
-limitado de posts. Dessa forma, seria possível fazer implementar uma paginação ou scroll infito, por exemplo, realizando pequenas chamadas conforme necessário.
-
-### Estilos
-
-Para esse projeto, o API utilizado possuia texto Lorem Ipsum sem capitalização no começo da frase. Para deixar a aparência mais bonita, eu utilizei CSS para capitalizar a a primeira palavra do texto.
-
-```css
-selector::first-letter {
-  text-transform: uppercase;
-}
-```
-
-Em um cenário real, é esperado que os texos estejam corretamente capitalizados.
+- [ ] **[Zod](https://zod.dev/)** to showcase how to safely type API responses
+- [ ] **Infinity Scrolling** from vueuse for the Home Page
+- [ ] Delete button for comments in the Admin Panel, with confirmation Dialog
+- [ ] Custom 404 Page
+- [ ] About Page
+- [ ] Improve README and comments
+- [ ] UnoCSS
