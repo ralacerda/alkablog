@@ -73,7 +73,6 @@ function selectPost(id: number) {
 }
 
 .admin__posts {
-  overflow-x: scroll;
   padding-inline: var(--content-padding);
 }
 

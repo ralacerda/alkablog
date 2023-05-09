@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { Post } from "~/types";
+import { useVirtualList } from "@vueuse/core";
 
-defineProps<{
+const props = defineProps<{
   postList: Post[] | null;
   selectedPostId: number | null;
 }>();
@@ -9,20 +10,30 @@ defineProps<{
 defineEmits<{
   (e: "selectPost", postId: number): void;
 }>();
+
+const {
+  list: virtualList,
+  containerProps,
+  wrapperProps,
+} = useVirtualList(props.postList as Post[], {
+  // Keep `itemHeight` in sync with the item's row.
+  itemHeight: 80,
+});
 </script>
 
 <template>
-  <h2>Posts</h2>
   <p v-if="!postList" class="error">Error while loading posts</p>
-  <ul v-else>
-    <li class="post" v-for="post in postList" :key="post.id">
-      <button
-        :data-selected="selectedPostId == post.id"
-        @click="$emit('selectPost', post.id)"
-      >
-        {{ post.title }}
-      </button>
-    </li>
+  <ul v-else v-bind="containerProps" class="virtual-container">
+    <div v-bind="wrapperProps">
+      <li class="post" v-for="post in virtualList" :key="post.data.id">
+        <button
+          :data-selected="selectedPostId == post.data.id"
+          @click="$emit('selectPost', post.data.id)"
+        >
+          {{ post.data.title }}
+        </button>
+      </li>
+    </div>
   </ul>
 </template>
 
@@ -32,14 +43,27 @@ defineEmits<{
   display: block;
   width: 100%;
   border: none;
-  margin-top: var(--space-xs-s);
   background-color: var(--background-secondary);
   padding: var(--space-xs-s);
   cursor: pointer;
+  overflow: hidden;
+
+  // We set a defined height so the virtual list
+  // can calculate the right size for the wrapper
+  height: 70px;
 
   &::first-letter {
     text-transform: uppercase;
   }
+}
+.post + .post {
+  margin-top: var(--space-xs-s);
+}
+
+.virtual-container {
+  height: 100%;
+  overflow-x: scroll;
+  padding-inline-end: var(--space-xs-s);
 }
 
 @media (min-width: 720px) {
