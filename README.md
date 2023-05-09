@@ -58,31 +58,26 @@ We use [Scoped CSS](https://vuejs.org/api/sfc-css-features.html#scoped-css) with
 
 ### Error handling
 
-O site foi desenvolvido de forma a lidar com eventuais instabilidades do API. Isso inclui redirecionamento para páginas de 404 e mensagens de aviso ao encontrar erros no carregamento de Posts ou Comentários.
+We try deal with eventual API instabilities. This includes showing placehold messages when data can't be fetched or redirecting users to a custom error page..
 
 ### Async Components
 
-As informações de comentários são carregadas de forma assíncrona, assim, não há a necessidade de esperar o carregamento dos comentários para exibir informações de um post. Isso aumenta a usabilidade do aplicativo e da melhor sensação de performance.
-
-### Server Side Rendering
-
-Utilizando a estratégia de Server Side Rendering, o navegador recebe uma renderização inicial feita no servidor,
-e carrega (hidata) os elementos em segundo plano. Dessa forma, é possível reduzir o tempo necessário para o carregamento inicial da página.
+Using `useLazyFetch` we can use async components. In our case, we use async components to show comments, this way, we show the users the most important content first (the post), while loading the comments.
 
 ### Responsive Design
 
-Foi utilizada a estratégia de espaçamento e tamanho de fonte fluidas. Dessa forma, não há necessidade de breakpoints. O resultado é um site adaptado a qualquer tamanho de tela.
+In this website, we are using both fluid typography and spacing. Those remove the need for breakpoints it's one of the many strategies to create responsive design.
 
-Na página inicial, foi utilizado uma `grid` de CSS para automaticamente controlar a quantidade de colunas baseado no espaço disponível.
+In the Home Page, we also use a CSS `grid` to automactlly set the number of columns based on avaliable space.
 
-Na área do administrador, foi utilizado "media queries" para ativar ou desativar a disposição do site em duas colunas. Para telas pequenas, foi utilizado um modal para o painel de informações.
+On the Admin Panel, we use media queries to enable or disable the two column display. On small screens, we use a modal to show information about each post.
 
 ## TODO List
 
+- [x] Custom 404 Page
+- [x] Translate README to English
 - [ ] **[Zod](https://zod.dev/)** to showcase how to safely type API responses
 - [ ] **Infinity Scrolling** from vueuse for the Home Page
 - [ ] Delete button for comments in the Admin Panel, with confirmation Dialog
-- [ ] Custom 404 Page
 - [ ] About Page
 - [ ] Improve README and comments
-- [ ] UnoCSS
