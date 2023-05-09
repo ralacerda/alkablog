@@ -13,7 +13,7 @@ defineEmits<{
 
 <template>
   <h2>Posts</h2>
-  <p v-if="!postList" class="error">Erro ao carregar list de posts</p>
+  <p v-if="!postList" class="error">Error while loading posts</p>
   <ul v-else>
     <li class="post" v-for="post in postList" :key="post.id">
       <button

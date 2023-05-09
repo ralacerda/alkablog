@@ -6,13 +6,13 @@ const props = defineProps<{
 
 const commentContainer = useState<null | HTMLElement>(() => null);
 
-// A gente verificar se o post mudou para voltar a posição ao topo
+// Scroll to top if select post changed
 watch(props, () => {
   commentContainer.value?.scroll(0, 0);
 });
 
-// Aqui a gente precisa passar uma função para que o Javascript recrie o string
-// e substitua o valor do selectedPostId sempre que props.selectedPostId mudar
+// We need to use a function to keep reactivity, otherwise it won't fetch again
+// when `selectedPostId` changes.
 const {
   error,
   pending,
@@ -25,11 +25,11 @@ const {
 
 <template>
   <div class="comment-container" ref="commentContainer">
-    <h2>Comentários</h2>
+    <h2>Comments</h2>
     <Transition name="transition-fade" mode="out-in">
       <p v-if="pending"><LoadingSpinner /></p>
       <p v-else-if="error" class="error">
-        Erro ao carregar os comentários: {{ error }}
+        Error while loading comments: {{ error }}
       </p>
       <ul v-else>
         <li class="comment" v-for="comment in commentList">

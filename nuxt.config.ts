@@ -2,12 +2,11 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      htmlAttrs: { lang: "pt-BR" },
+      htmlAttrs: { lang: "en" },
       meta: [
         {
           name: "description",
-          content:
-            "O Alkablog é o resultado de um teste técnico de um processo seletivo. ",
+          content: "AlkaBlog is a example website showing the use of Nuxt",
         },
       ],
     },

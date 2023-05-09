@@ -5,7 +5,7 @@ const paramId = parseInt(route.params.id as string);
 if (isNaN(paramId)) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Página não encontrada",
+    statusMessage: "Page not found",
   });
 }
 
@@ -14,7 +14,7 @@ const post = await getPost(paramId);
 if (!post.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Página não encontrada",
+    statusMessage: "Page not found",
   });
 }
 
@@ -39,7 +39,7 @@ const autor = await getUser(post.value.userId);
       <PostComments :postId="paramId" />
     </section>
 
-    <NuxtLink to="/">Voltar a página inicial</NuxtLink>
+    <NuxtLink to="/"> Go back to home page </NuxtLink>
   </div>
 </template>
 

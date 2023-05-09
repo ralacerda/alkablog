@@ -9,8 +9,8 @@ const selectedPostId = useState<null | number>(() => null);
 
 const { data: postList } = await getAllPosts();
 
-// Usamos um filter para evitar usar `postList[selectedPostId.value - 1]`
-// já que não temos certeza que a API vai sempre responder com os ID em ordem
+// We use filter instead of `postList[selectedPostId.value - 1]`
+// because we're not sure the API will always returnd the array ordered by ID
 const selectedPost = computed(() => {
   if (postList.value) {
     return postList.value.filter((post) => post.id == selectedPostId.value)[0];
@@ -26,7 +26,7 @@ function selectPost(id: number) {
 
 <template>
   <Head>
-    <Title>AlkaBlog | Área do Administrador</Title>
+    <Title>AlkaBlog | Admin Panel </Title>
   </Head>
   <div class="admin">
     <div class="admin__posts">
@@ -36,16 +36,15 @@ function selectPost(id: number) {
         @selectPost="selectPost"
       />
     </div>
-    <!-- Aqui é necessário utilizar ClientOnly pois o SSR não consegue lidar com o Teleport-->
+    <!-- We need to use ClientOnly since Teleport doesn't work with SSR-->
     <ClientOnly>
       <Teleport to="main" :disabled="isDesktop">
         <Transition name="transition-slidein">
           <div class="admin__details" v-if="showDetailsModal || isDesktop">
             <p v-if="selectedPostId === null">
-              Selecione um post ao lado para ver suas informações e os seus
-              comentários.
+              Select a post to view it's content and comments
             </p>
-            <!-- O <template> é uma forma de usar um directive sem criar um elemento -->
+            <!-- <template> allow us to use a directive without creating a new element -->
             <template v-else>
               <div class="details__post">
                 <AdminPostInfo :postInfo="selectedPost" />

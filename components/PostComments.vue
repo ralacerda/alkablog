@@ -7,13 +7,13 @@ const { error, pending, data: commentList } = getComments(props.postId);
 </script>
 
 <template>
-  <h2>Comentários</h2>
+  <h2>Comments</h2>
   <Transition name="transition-fade" mode="out-in">
     <div v-if="pending"><LoadingSpinner /></div>
     <div v-else-if="error" class="error">
-      Erro ao carregar os comentários: {{ error }}
+      Error while loading comments: {{ error }}
     </div>
-    <div v-else-if="commentList?.length == 0">Não há comentários</div>
+    <div v-else-if="commentList?.length == 0">No comments found</div>
     <ul v-else>
       <li class="comment" v-for="comment in commentList" :key="comment.id">
         <h3 class="comment__title">{{ comment.name }}</h3>

@@ -1,5 +1,5 @@
 :root {
-  // Cores
+  // Colors
   --background-secondary: #fdfdfd;
   --background: #f5f6f6;
   --accent: #3066be;
@@ -7,16 +7,16 @@
   --foreground-secondary: #171c17;
   --error: #e84855;
 
-  // Fontes
+  // Fonts
   --font-display: serif;
   --font-body: sans-serif;
 
-  // Detalhes gráficos
+  // Visual Details
   --border-radius: 4px;
   --box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.05);
   --background-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 4 4'%3E%3Cpath fill='%23171c17' fill-opacity='0.02' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 
-  // Tipografia fluída criada com a calculadora da Utopia
+  // Fluid typography created with the Utopia Calculator
   // https://utopia.fyi/type/calculator?c=320,14,1.25,1240,16,1.618,3,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12
   --step--1: clamp(0.7rem, calc(0.7rem + 0.01vw), 0.71rem);
   --step-0: clamp(0.88rem, calc(0.83rem + 0.22vw), 1rem);
@@ -24,7 +24,7 @@
   --step-2: clamp(1.37rem, calc(1.15rem + 1.1vw), 2rem);
   --step-3: clamp(1.71rem, calc(1.32rem + 1.94vw), 2.83rem);
 
-  // Espaçamento fluído cirado com a calculadora da Utopia
+  //  Fluid spacing created with the Utopia Calculator
   // https://utopia.fyi/space/calculator?c=320,14,1.25,1240,16,1.414,3,1,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
   --space-3xs-2xs: clamp(0.25rem, calc(0.16rem + 0.43vw), 0.5rem);
   --space-2xs-xs: clamp(0.44rem, calc(0.33rem + 0.54vw), 0.75rem);
@@ -35,10 +35,10 @@
   --space-xl-2xl: clamp(2.63rem, calc(2.15rem + 2.39vw), 4rem);
   --space-2xl-3xl: clamp(3.5rem, calc(2.63rem + 4.35vw), 6rem);
 
-  // Variáveis de padding
+  // Padding variables
   --content-padding: var(--space-xs-s);
   --main-padding: var(--space-s-m);
 
-  // Tamanho máximo do <main>
+  // Main max size
   --main-maxsize: 75rem;
 }

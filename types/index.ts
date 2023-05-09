@@ -13,8 +13,8 @@ export type Comment = {
   body: string;
 };
 
-// Há mais informações presentes no API
-// mas essas são as informações necessárias para a implementação atual
+// There are more values in the API
+// but we are only using the following
 export type User = {
   name: string;
   username: string;

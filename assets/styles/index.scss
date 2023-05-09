@@ -34,8 +34,6 @@ header {
     align-items: baseline;
     max-width: var(--main-maxsize);
     margin-inline: auto;
-    // Adicionamos padding horizontal para alinhar o texto do Header com
-    // os outros textos dentro de cards
     padding: 0.2rem calc(var(--main-padding) + var(--content-padding));
   }
 
