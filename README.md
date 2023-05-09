@@ -72,6 +72,10 @@ In the Home Page, we also use a CSS `grid` to automactlly set the number of colu
 
 On the Admin Panel, we use media queries to enable or disable the two column display. On small screens, we use a modal to show information about each post.
 
+### Virtual List
+
+To improve performance, we use a [Virtual List](https://vueuse.org/core/useVirtualList/) on the Admin Panel. This way, not all 100 posts are loaded at the same time, reducing the number of DOM elements.
+
 ## TODO List
 
 - [x] Custom 404 Page
